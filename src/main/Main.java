@@ -1,51 +1,28 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-import model.GraphList;
 
-public class Main {
+import control.InitWindow;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-	private GraphList<String>mapEurope;
-	private Scanner sc =new Scanner(System.in);
-	public static void main(String[]args) {
-		Main obj=new Main();
-		obj.init();
-		obj.requestData();
-	}
-	
-	public void init() {
-		mapEurope = new GraphList<>(6);
-		
-		mapEurope.addVertex("Barcelona");
-		mapEurope.addVertex("Paris");
-		mapEurope.addVertex("Londres");
-		mapEurope.addVertex("Zurich");
-		mapEurope.addVertex("Roma");
-		mapEurope.addVertex("Moscu");
-		
-		mapEurope.addEdge("Barcelona", "Londres", 5);
-		mapEurope.addEdge("Londres", "Paris",3);
-		mapEurope.addEdge("Barcelona", "Paris",2);
-		mapEurope.addEdge("Paris", "Zurich",1);
-		mapEurope.addEdge("Paris", "Roma",2);
-		mapEurope.addEdge("Roma", "Zurich",2);
-		mapEurope.addEdge("Moscu", "Roma",7);
-		
-	}
-	
-	public void requestData() {
-		
-		System.out.println("Enter the number of Cities to visit");
-		int t = sc.nextInt();
-		ArrayList<String>cities=new ArrayList<>();
-		for(int i=0;i<t;i++) {
-			String city= sc.next();
-			cities.add(city);
-			
+
+public class Main extends Application{
+
+		public static void main(String[] args) {
+			// TODO Auto-generated method stub
+			 launch();
 		}
-		
-		mapEurope.floydWarshall(mapEurope.costMatrix);
-		System.out.println(mapEurope.searchRoad(cities));
+		 @Override
+			public void start(Stage primaryStage)throws Exception{
+			 FXMLLoader loader = new FXMLLoader(Main.class.getResource("../ui/InitWindow.fxml"));
+			 loader.setController(new InitWindow());
+			 Parent parent = (Parent) loader.load();
+			 Stage stage = new Stage();
+			 Scene scene = new Scene(parent);
+			 stage.setScene(scene);
+			 stage.show();
+		   }
 	}
-}
