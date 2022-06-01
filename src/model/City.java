@@ -15,6 +15,10 @@ public class City {
 		this.flag=image;
 	}
 
+	public <T> City(T data) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getName() {
 		return name;
 	}
