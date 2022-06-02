@@ -12,6 +12,7 @@ class SolutionTesting {
 	private String id;
 	private MenuWindow mw;
 	private String city;
+	
 	public void setupStage1() {
 		id="Diana";
 		mw=new MenuWindow(id);
@@ -25,16 +26,9 @@ class SolutionTesting {
 		mw.getMap().addVertex(city);
 	}
 
-	public void setupStage3() {
-		id="Diana";
-		mw=new MenuWindow(id);
-		mw.getCities().add(new City("Cali"));
-		mw.getCities().add(new City("Cucuta"));
-	
-	}
 	
 	@Test
-	void addCity()  {
+	void addCityTest()  {
 		setupStage1();
 		boolean ok=false;
 		mw.getCities().add(new City(city));
@@ -45,7 +39,7 @@ class SolutionTesting {
 	}
 	
 	@Test
-	void deleteCity()  {
+	void deleteCityTest()  {
 		setupStage1();
 		boolean ok=false;
 		mw.getCities().add(new City(city));
@@ -57,7 +51,7 @@ class SolutionTesting {
 	}
 	
 	@Test
-	void addVertexCityGraph() {
+	void addVertexCityGraphTest() {
 		setupStage2();
 		boolean ok=false;
 		if(!mw.getMap().adjVertices.isEmpty()) {
@@ -67,7 +61,7 @@ class SolutionTesting {
 	}
 	
 	@Test
-	void deleteVertexCityGraph() {
+	void deleteVertexCityGraphTest() {
 		setupStage1();
 		boolean ok=false;
 		mw.getMap().removeVertex(city);
@@ -78,14 +72,14 @@ class SolutionTesting {
 	}
 	
 	@Test
-	void addEdgeCities() {
+	void addEdgeCitiesTest() {
 		setupStage1();
 		boolean ok=false;
 		String c1="Bogota";
 		String c2= "Medellin";
 		mw.getMap().addVertex(c1);
 		mw.getMap().addVertex(c2);
-		mw.getMap().addEdge(c1,c2);
+		mw.getMap().addEdge(c1,c2, 1);
 		
 		if(mw.getMap().adjVertices.get(c1).contains(c2)) {
 			ok=true;
