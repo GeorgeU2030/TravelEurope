@@ -1,6 +1,7 @@
 package control;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -17,15 +18,21 @@ public class TimeWindow implements Initializable{
 	 
 	 private String id;
 	 private int time;
-	 public TimeWindow(String id,int time) {
+	 private ArrayList<String> road;
+	 public TimeWindow(String id,int time, ArrayList<String> road) {
 		 this.id=id;
 		 this.time=time;
+		 this.road=road;
 	 }
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		String msj="";
+		for(int i=0; i<road.size();i++) {
+			msj+=(", "+road.get(i));
+		}
 		int hours = time/60;
 		int minutes = time-(hours*60);
-		timeLabel.setText(id+" the time that you will spend in the travel is ");
+		timeLabel.setText(id+" the minimum time that you will spend on the trip between the cities of: "+msj+" is:");
 		dataLabel.setText(hours+" Hours and "+minutes+ " minutes");
 	}
 }

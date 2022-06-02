@@ -21,8 +21,6 @@ class GraphTesting {
 	
 	}
 	
-	
-	
 	@Test
 	void addVertexTest() {
 		setupStage1();

@@ -88,7 +88,7 @@ public class MenuWindow implements Initializable{
     void searchClick(ActionEvent event)throws Exception {
          int time= map.searchRoad(road);
          FXMLLoader loader = new FXMLLoader(Main.class.getResource("../ui/TimeWindow.fxml"));
- 		 loader.setController(new TimeWindow(id,time));
+ 		 loader.setController(new TimeWindow(id,time,road));
  		 Parent parent = (Parent) loader.load();
  		 Stage stage = new Stage();
  		 Scene scene = new Scene(parent);
@@ -276,4 +276,29 @@ public class MenuWindow implements Initializable{
 		return image;
 		
 	}
+
+	public ArrayList<String> getRoad() {
+		return road;
+	}
+
+	public void setRoad(ArrayList<String> road) {
+		this.road = road;
+	}
+
+	public ArrayList<City> getCities() {
+		return cities;
+	}
+
+	public void setCities(ArrayList<City> cities) {
+		this.cities = cities;
+	}
+
+	public Graph<String> getMap() {
+		return map;
+	}
+
+	public void setMap(Graph<String> map) {
+		this.map = map;
+	}
+	
 }
