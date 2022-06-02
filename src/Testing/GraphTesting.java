@@ -10,7 +10,6 @@ import model.Graph;
 class GraphTesting {
 	
 	private Graph<Integer> graph;
-	private int[][] g;
 	
 	public void setupStage1() {
 		
