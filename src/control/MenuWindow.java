@@ -240,7 +240,7 @@ public class MenuWindow implements Initializable{
 		map.addEdge("Oslo", "Estocolmo", 60);
 		map.addEdge("Oslo", "Helsinki", 80);
 		map.addEdge("Oslo", "Copenhague", 70);
-		map.addEdge("Eindhoven", "Amsterdam", 80);
+		map.addEdge("Eindhoven", " ", 80);
 		map.addEdge("Varsovia", "Berlin", 85);
 		map.addEdge("Varsovia", "Moscu", 380);
 		map.addEdge("Varsovia", "Kiev", 120);

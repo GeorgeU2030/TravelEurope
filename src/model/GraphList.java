@@ -202,6 +202,7 @@ public class GraphList<T> {
     public int searchRoad(ArrayList<T>cities) {
     	int time=9999999;
     	int b=0;
+    	
     		
         for(int i=0;i<cities.size();i++) {
         	int a = searchPos(cities,cities.get(i));

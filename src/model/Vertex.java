@@ -4,7 +4,7 @@ public class Vertex<T> {
 
 
 	T data;
-    Vertex(T data) {
+    public Vertex(T data) {
         this.data = data;
     }
 }
