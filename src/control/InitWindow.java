@@ -19,21 +19,21 @@ public class InitWindow implements Initializable{
 
 	@FXML
     private TextField textname;
-	
+
 	@FXML
     private Button goBtn;
 
     @FXML
     void goClick(ActionEvent event) throws Exception{
-    	
+
           if(textname.getText().equals("")) {
         	  Alert alert = new Alert(Alert.AlertType.ERROR);
 	            alert.setHeaderText(null);
 	            alert.setTitle("ERROR");
 	            alert.setContentText("Enter a Valid Name");
 	            alert.showAndWait();
-	            
-        	  
+
+
           }else {
         	  String id = textname.getText();
         	  FXMLLoader loader = new FXMLLoader(Main.class.getResource("../ui/MenuWindow.fxml"));

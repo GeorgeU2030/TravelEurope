@@ -32,7 +32,7 @@ public class TimeWindow implements Initializable{
 		}
 		int hours = time/60;
 		int minutes = time-(hours*60);
-		timeLabel.setText(id+" the minimum time that you will spend on the trip between the cities of: "+msj+" is:");
+		timeLabel.setText(id+" the minimum time that you will spend \non the trip between the cities of: \n"+msj+" is:");
 		dataLabel.setText(hours+" Hours and "+minutes+ " minutes");
 	}
 }

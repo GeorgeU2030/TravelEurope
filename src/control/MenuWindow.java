@@ -29,13 +29,13 @@ import model.Graph;
 public class MenuWindow implements Initializable{
 
 	private String id;
-	
+
 	private ArrayList<String>road=new ArrayList<>();
-	
+
 	private ArrayList<City>cities=new ArrayList<>();
-	
+
 	private Graph<String>map = new Graph<>(68);
-	
+
 	public MenuWindow(String id) {
 		this.id = id;
 	}
@@ -56,9 +56,9 @@ public class MenuWindow implements Initializable{
 
     @FXML
     private Label welcomeLabel;
-    
+
     private City tempCity;
-    
+
 
     @FXML
     void addCity(ActionEvent event) {
@@ -66,7 +66,7 @@ public class MenuWindow implements Initializable{
         road.add(tempCity.getName());
         String text="";
         for(int i=0;i<cities.size();i++) {
-        	
+
         	text+= i+1+" "+cities.get(i).getName()+" "+cities.get(i).getCode()+"\n";
         }
         citiesTA.setText(text);
@@ -78,17 +78,17 @@ public class MenuWindow implements Initializable{
        road.remove(tempCity.getName());
        String text="";
        for(int i=0;i<cities.size();i++) {
-       	
+
        	text+= i+1+" "+cities.get(i).getName()+" "+cities.get(i).getCode()+"\n";
        }
        citiesTA.setText(text);
     }
-    
+
     @FXML
     void searchClick(ActionEvent event)throws Exception {
          int time= map.searchRoad(road);
          FXMLLoader loader = new FXMLLoader(Main.class.getResource("../ui/TimeWindow.fxml"));
- 		 loader.setController(new TimeWindow(id,time,road));
+ 		 loader.setController(new TimeWindow(id,time, road));
  		 Parent parent = (Parent) loader.load();
  		 Stage stage = new Stage();
  		 Scene scene = new Scene(parent);
@@ -137,7 +137,7 @@ public class MenuWindow implements Initializable{
 			String name = countries[i];
 			String code = countries[i+1];
 			ImageView image = setFlag(count);
-			
+
 			image.setFitHeight(15);
 			image.setFitWidth(30);
 			City city = new City(name,code,image);
@@ -145,13 +145,13 @@ public class MenuWindow implements Initializable{
 			count++;
 		}
 	}
-	
+
 	public void chargeMap() {
-		
+
 		for(int i=0;i<CityData.getData().size();i++) {
 			map.addVertex(CityData.getData().get(i).getName());
 		}
-		
+
 		map.addEdge("Tirana", "Atenas", 70);
 		map.addEdge("Berlin", "Dortmund", 255);
 		map.addEdge("Berlin", "Frankfurt", 70);
@@ -240,7 +240,7 @@ public class MenuWindow implements Initializable{
 		map.addEdge("Oslo", "Estocolmo", 60);
 		map.addEdge("Oslo", "Helsinki", 80);
 		map.addEdge("Oslo", "Copenhague", 70);
-		map.addEdge("Eindhoven", " ", 80);
+		map.addEdge("Eindhoven", "Amsterdam", 80);
 		map.addEdge("Varsovia", "Berlin", 85);
 		map.addEdge("Varsovia", "Moscu", 380);
 		map.addEdge("Varsovia", "Kiev", 120);
@@ -267,8 +267,6 @@ public class MenuWindow implements Initializable{
 		map.addEdge("Zurich", "Viena", 80);
 		map.addEdge("Estambul", "Larnaca", 255);
 		map.addEdge("Minsk", "Kiev", 65);
-		
-		
 	}
 	
 	public ImageView setFlag(int count) {
